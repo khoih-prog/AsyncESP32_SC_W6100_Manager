@@ -1,10 +1,10 @@
-# AsyncESP32_W6100_Manager
+# AsyncESP32_SC_W6100_Manager
 
-[![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncESP32_W6100_Manager.svg?)](https://www.ardu-badge.com/AsyncESP32_W6100_Manager)
-[![GitHub release](https://img.shields.io/github/release/khoih-prog/AsyncESP32_W6100_Manager.svg)](https://github.com/khoih-prog/AsyncESP32_W6100_Manager/releases)
-[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/khoih-prog/AsyncESP32_W6100_Manager/blob/main/LICENSE)
+[![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncESP32_SC_W6100_Manager.svg?)](https://www.ardu-badge.com/AsyncESP32_SC_W6100_Manager)
+[![GitHub release](https://img.shields.io/github/release/khoih-prog/AsyncESP32_SC_W6100_Manager.svg)](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/releases)
+[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/blob/main/LICENSE)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](#Contributing)
-[![GitHub issues](https://img.shields.io/github/issues/khoih-prog/AsyncESP32_W6100_Manager.svg)](http://github.com/khoih-prog/AsyncESP32_W6100_Manager/issues)
+[![GitHub issues](https://img.shields.io/github/issues/khoih-prog/AsyncESP32_SC_W6100_Manager.svg)](http://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/issues)
 
 <a href="https://www.buymeacoffee.com/khoihprog6" title="Donate to my libraries using BuyMeACoffee"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Donate to my libraries using BuyMeACoffee" style="height: 50px !important;width: 181px !important;" ></a>
 <a href="https://www.buymeacoffee.com/khoihprog6" title="Donate to my libraries using BuyMeACoffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-orange.svg?logo=buy-me-a-coffee&logoColor=FFDD00" style="height: 20px !important;width: 200px !important;" ></a>
@@ -14,9 +14,13 @@
 
 ## Table of Contents
 
-* [Why do we need this AsyncESP32_W6100_Manager library](#why-do-we-need-this-async-AsyncESP32_W6100_Manager-library)
+* [Why do we need this AsyncESP32_SC_W6100_Manager library](#why-do-we-need-this-async-AsyncESP32_SC_W6100_Manager-library)
   * [Features](#features)
   * [Why Async is better](#why-async-is-better)
+  * [Sibling Libraries](#Sibling-Libraries)
+  	* [Base libraries](#Base-libraries)
+  	* [Synchronous Ethernet Manager libraries](#Synchronous-Ethernet-Manager-libraries)
+  	* [Asynchronous Ethernet Manager libraries](#Asynchronous-Ethernet-Manager-libraries)
   * [Currently supported Boards](#currently-supported-boards)
 * [Changelog](changelog.md)
 * [Prerequisites](#prerequisites)
@@ -84,8 +88,8 @@
   * [Custom Parameters](#custom-parameters)
   * [Custom IP Configuration](#custom-ip-configuration) 
     * [Custom Station (client) Static IP Configuration](#custom-station-client-static-ip-configuration)
-  * [Custom HTML, CSS, Javascript](#custom-html-css-javascript) 
-* [How to connect W6100 to ESP32](#How-to-connect-W6100-to-ESP32)
+  * [Custom HTML, CSS, Javascript](#custom-html-css-javascript)
+* [How to connect W6100 to ESP32_S2/S3/C3](#How-to-connect-W6100-to-ESP32_S2S3C3)
 * [Examples](#examples)
   * [Async_ConfigOnSwitch](examples/Async_ConfigOnSwitch)
   * [Async_ConfigOnSwitchFS](examples/Async_ConfigOnSwitchFS)
@@ -96,12 +100,16 @@
   * [Async_ESP32_FSWebServer_DRD](examples/Async_ESP32_FSWebServer_DRD)
 * [Example Async_ConfigOnSwitch](#example-Async_ConfigOnSwitch)
 * [Debug Terminal Output Samples](#debug-terminal-output-samples)
-  * [1. Async_ConfigOnDoubleReset using LittleFS on ESP32_DEV with ESP32_W6100](#1-Async_ConfigOnDoubleReset-using-LittleFS-on-ESP32_DEV-with-ESP32_W6100)
-  * [2. Async_ConfigOnSwichFS using LittleFS on ESP32_DEV with ESP32_W6100](#2-Async_ConfigOnSwichFS-using-LittleFS-on-ESP32_DEV-with-ESP32_W6100)
-  * [3. Async_ESP32_FSWebServer_DRD using LittleFS on ESP32_DEV with ESP32_W6100](#3-Async_ESP32_FSWebServer_DRD-using-LittleFS-on-ESP32_DEV-with-ESP32_W6100)
+  * [1. Async_ConfigOnDoubleReset using LittleFS on ESP32S3_DEV with ESP32_S3_W6100](#1-Async_ConfigOnDoubleReset-using-LittleFS-on-ESP32S3_DEV-with-ESP32_S3_W6100)
+  * [2. Async_ConfigOnSwichFS using LittleFS on ESP32S3_DEV with ESP32_S3_W6100](#2-Async_ConfigOnSwichFS-using-LittleFS-on-ESP32S3_DEV-with-ESP32_S3_W6100)
+  * [3. Async_ESP32_FSWebServer_DRD using LittleFS on ESP32S3_DEV with ESP32_S3_W6100](#3-Async_ESP32_FSWebServer_DRD-using-LittleFS-on-ESP32S3_DEV-with-ESP32_S3_W6100)
+  * [4. Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32C3_DEV with ESP32_C3_W6100](#4-Async_ConfigOnDoubleReset_TZ-using-LittleFS-on-ESP32C3_DEV-with-ESP32_C3_W6100)
+  * [5. Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32C3_DEV with ESP32_C3_W6100](#5-Async_ConfigOnDoubleReset_TZ-using-LittleFS-on-ESP32S2_DEV-with-ESP32_S2_W6100)
 * [Debug](#debug)
 * [Troubleshooting](#troubleshooting)
 * [Issues](#issues)
+* [TO DO](#to-do)
+* [DONE](#done)
 * [Contributions and Thanks](#contributions-and-thanks)
 * [Contributing](#contributing)
 * [License and credits](#license-and-credits)
@@ -111,11 +119,11 @@
 ---
 
 
-### Why do we need this Async [AsyncESP32_W6100_Manager library](https://github.com/khoih-prog/AsyncESP32_W6100_Manager)
+### Why do we need this Async [AsyncESP32_SC_W6100_Manager library](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager)
 
 #### Features
 
-This is an `ESP32 + LwIP W6100` Credentials and Connection Manager with fallback Web ConfigPortal. This Library is used for configuring ESP32 Ethernet Static / DHCP and Credentials at runtime. You can specify static DNS servers, personalized HostName and CORS feature.
+This is an `ESP32_S2/S3/C3 + LwIP W6100` Credentials and Connection Manager with fallback Web ConfigPortal. This Library is used for configuring ESP32_S2/S3/C3 Ethernet Static / DHCP and Credentials at runtime. You can specify static DNS servers, personalized HostName and CORS feature.
 
 This library is based on, modified, bug-fixed and improved from:
 
@@ -123,8 +131,9 @@ This library is based on, modified, bug-fixed and improved from:
 
 to use the better and faster **asynchronous** [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer) instead of [WebServer_ESP32_W6100]((https://github.com/khoih-prog/WebServer_ESP32_W6100))
 
-Thanks to this [AsyncESP32_W6100_Manager library](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) is based on and sync'ed with [`ESPAsync_WiFiManager`](https://github.com/khoih-prog/ESPAsync_WiFiManager), all the features currently supported by [`ESPAsync_WiFiManager`](https://github.com/khoih-prog/ESPAsync_WiFiManager) will be available. Please have a look at [`ESPAsync_WiFiManager`](https://github.com/khoih-prog/ESPAsync_WiFiManager) for those too-many-to-list features.
+Thanks to this [AsyncESP32_SC_W6100_Manager library](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) is based on and sync'ed with [`ESPAsync_WiFiManager`](https://github.com/khoih-prog/ESPAsync_WiFiManager), all the features currently supported by [`ESPAsync_WiFiManager`](https://github.com/khoih-prog/ESPAsync_WiFiManager) will be available. Please have a look at [`ESPAsync_WiFiManager`](https://github.com/khoih-prog/ESPAsync_WiFiManager) for those too-many-to-list features.
 
+---
 
 ### Why Async is better
 
@@ -143,12 +152,80 @@ Thanks to this [AsyncESP32_W6100_Manager library](https://github.com/khoih-prog/
 
 To appreciate the power of the [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer) and underlying Async libraries, please compare the more efficient [Async_ESP32_FSWebServer example](examples/Async_ESP32_FSWebServer) example with the complicated twin [ESP32_FSWebServer](https://github.com/khoih-prog/ESP_WiFiManager/tree/master/examples/ESP32_FSWebServer).
 
+---
+
+### Sibling Libraries
+
+
+Please also check these sibling libraries
+
+#### Base libraries
+
+1. [WebServer_WT32_ETH01](https://github.com/khoih-prog/WebServer_WT32_ETH01) for ESP32-based `WT32_ETH01` using `LwIP LAN8720`
+2. [WebServer_ESP32_ENC](https://github.com/khoih-prog/WebServer_ESP32_ENC) for ESP32-boards using `LwIP ENC28J60`
+3. [WebServer_ESP32_W5500](https://github.com/khoih-prog/WebServer_ESP32_W5500) for ESP32-boards using `LwIP W5500`
+4. [WebServer_ESP32_W6100](https://github.com/khoih-prog/WebServer_ESP32_W6100) for ESP32-boards using `LwIP W6100`
+5. [WebServer_ESP32_SC_ENC](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
+6. [WebServer_ESP32_SC_W5500](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) for ESP32_S2/S3/C3-boards using `LwIP W5500`
+7. [WebServer_ESP32_SC_W6100](https://github.com/khoih-prog/WebServer_ESP32_SC_W6100) for ESP32_S2/S3/C3-boards using `LwIP W6100`
+
+
+#### Synchronous Ethernet Manager libraries
+
+1. [ESP32_ENC_Manager](https://github.com/khoih-prog/ESP32_ENC_Manager) for ESP32-boards using `LwIP ENC28J60`
+2. [ESP32_W5500_Manager](https://github.com/khoih-prog/ESP32_W5500_Manager) for ESP32-boards using `LwIP W5500`
+3. [ESP32_W6100_Manager](https://github.com/khoih-prog/ESP32_W6100_Manager) for ESP32-boards using `LwIP W6100`
+4. [ESP32_Ethernet_Manager](https://github.com/khoih-prog/ESP32_Ethernet_Manager) for ESP32-boards using `LwIP W5500, W6100 or ENC28J60`
+5. [ESP32_SC_ENC_Manager](https://github.com/khoih-prog/ESP32_SC_ENC_Manager) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
+6. [ESP32_SC_W5500_Manager](https://github.com/khoih-prog/ESP32_SC_W5500_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500`
+7. [ESP32_SC_W6100_Manager](https://github.com/khoih-prog/ESP32_SC_W6100_Manager) for ESP32_S2/S3/C3-boards using `LwIP W6100`
+8. [ESP32_SC_Ethernet_Manager](https://github.com/khoih-prog/ESP32_SC_Ethernet_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500, W6100 or ENC28J60`
+
+#### Asynchronous Ethernet Manager libraries
+
+1. [AsyncWT32_ETH01_Manager](https://github.com/khoih-prog/AsyncWT32_ETH01_Manager) for ESP32-based `WT32_ETH01` using `LwIP LAN8720`
+2. [AsyncESP32_ENC_Manager](https://github.com/khoih-prog/AsyncESP32_ENC_Manager) for ESP32-boards using `LwIP ENC28J60`
+3. [AsyncESP32_W5500_Manager](https://github.com/khoih-prog/AsyncESP32_W5500_Manager) for ESP32-boards using `LwIP W5500`
+4. [AsyncESP32_W6100_Manager](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) for ESP32-boards using `LwIP W6100`
+5. [AsyncESP32_Ethernet_Manager](https://github.com/khoih-prog/AsyncESP32_Ethernet_Manager) for ESP32-boards using `LwIP W6100 or ENC28J60`
+6. [AsyncESP32_SC_ENC_Manager](https://github.com/khoih-prog/AsyncESP32_SC_ENC_Manager) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
+7. [AsyncESP32_SC_W5500_Manager](https://github.com/khoih-prog/AsyncESP32_SC_W5500_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500`
+8. [AsyncESP32_SC_W6100_Manager](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) for ESP32_S2/S3/C3-boards using `LwIP W6100`
+9. [AsyncESP32_SC_Ethernet_Manager](https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500, W6100 or ENC28J60`
+
+---
 
 #### Currently supported Boards
 
-This [**AsyncESP32_W6100_Manager** library](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) currently supports these following boards:
+This [**AsyncESP32_SC_W6100_Manager** library](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) currently supports these following boards:
 
- 1. **ESP32_DEV boards** using `LwIP W6100 Ethernet`
+1. **ESP32_S3-based boards (ESP32S3_DEV, ESP32_S3_BOX, UM TINYS3, UM PROS3, UM FEATHERS3, etc.)**
+2. **ESP32-S2 (ESP32-S2 Saola, AI-Thinker ESP-12K, etc.)**
+3. **ESP32-C3 (ARDUINO_ESP32C3_DEV, etc.)**
+
+using `LwIP W6100 Ethernet`
+
+---
+
+#### ESP32S3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/ESP32S3_DEV.png">
+</p> 
+
+
+#### ESP32S2_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/ESP32S2_DEV.png">
+</p> 
+
+
+#### ESP32C3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/ESP32_C3_DevKitC_02.png">
+</p> 
 
 ---
 
@@ -157,9 +234,8 @@ This [**AsyncESP32_W6100_Manager** library](https://github.com/khoih-prog/AsyncE
 `FULL_DUPLEX, 100Mbps`
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W6100_Manager/raw/main/Images/W6100.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/W6100.png">
 </p>
-
  
 ---
 ---
@@ -169,11 +245,11 @@ This [**AsyncESP32_W6100_Manager** library](https://github.com/khoih-prog/AsyncE
 
  1. [`Arduino IDE 1.8.19+` for Arduino](https://github.com/arduino/Arduino). [![GitHub release](https://img.shields.io/github/release/arduino/Arduino.svg)](https://github.com/arduino/Arduino/releases/latest)
  2. [`ESP32 Core 2.0.6+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
- 3. [`ESPAsyncWebServer v1.2.3+`](https://github.com/me-no-dev/ESPAsyncWebServer). You have to use the latest better [forked ESPAsyncWebServer](https://github.com/khoih-prog/ESPAsyncWebServer) if the PR [Fix compiler error for ESP32-C3 and mbed TLS v2.7.0+ #970](https://github.com/me-no-dev/ESPAsyncWebServer/pull/970) hasn't been merged. **To install manually for Arduino IDE**
- 4. [`ESPAsyncDNSServer v1.0.0+`](https://github.com/devyte/ESPAsyncDNSServer) or better [`Forked ESPAsyncDNSServer v1.0.0+`](https://github.com/khoih-prog/ESPAsyncDNSServer/releases/tag/v1.0.0)
+ 3. [`ESPAsyncWebServer v1.2.3+`](https://github.com/me-no-dev/ESPAsyncWebServer). You have to use the latest [forked ESPAsyncWebServer](https://github.com/khoih-prog/ESPAsyncWebServer) if the PR [Fix compiler error for ESP32-C3 and mbed TLS v2.7.0+ #970](https://github.com/me-no-dev/ESPAsyncWebServer/pull/970) hasn't been merged. **To install manually for Arduino IDE**
+ 4. [`ESPAsyncDNSServer v1.0.0+`](https://github.com/devyte/ESPAsyncDNSServer) or [`Forked ESPAsyncDNSServer v1.0.0+`](https://github.com/khoih-prog/ESPAsyncDNSServer/releases/tag/v1.0.0)
  5. [`AsyncTCP v1.1.1+`](https://github.com/me-no-dev/AsyncTCP). **To install manually for Arduino IDE**
  6. [`ESP_DoubleResetDetector v1.3.2+`](https://github.com/khoih-prog/ESP_DoubleResetDetector) if using DRD feature. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/ESP_DoubleResetDetector.svg?)](https://www.ardu-badge.com/ESP_DoubleResetDetector). Use v1.1.0+ if using `LittleFS` for ESP32 v1.0.6+.
- 7. [`WebServer_ESP32_W6100 library v1.5.3`](https://github.com/khoih-prog/WebServer_ESP32_W6100) if necessary to use ESP32 boards using LwIP W6100 Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_W6100.svg?)](https://www.ardu-badge.com/WebServer_ESP32_W6100)
+ 7. [`WebServer_ESP32_SC_W6100 library v1.2.1+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W6100) if necessary to use ESP32 boards using LwIP W6100 Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W6100.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W6100)
  
 ---
 ---
@@ -182,20 +258,20 @@ This [**AsyncESP32_W6100_Manager** library](https://github.com/khoih-prog/AsyncE
 
 ### Use Arduino Library Manager
 
-The best and easiest way is to use `Arduino Library Manager`. Search for `AsyncESP32_W6100_Manager`, then select / install the latest version. You can also use this link [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncESP32_W6100_Manager.svg?)](https://www.ardu-badge.com/AsyncESP32_W6100_Manager) for more detailed instructions.
+The best and easiest way is to use `Arduino Library Manager`. Search for `AsyncESP32_SC_W6100_Manager`, then select / install the latest version. You can also use this link [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncESP32_SC_W6100_Manager.svg?)](https://www.ardu-badge.com/AsyncESP32_SC_W6100_Manager) for more detailed instructions.
 
 ### Manual Install
 
-1. Navigate to [AsyncESP32_W6100_Manager](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) page.
-2. Download the latest release `AsyncESP32_W6100_Manager-main.zip`.
-3. Extract the zip file to `AsyncESP32_W6100_Manager-main` directory 
-4. Copy the whole `AsyncESP32_W6100_Manager-main` folder to Arduino libraries' directory such as `~/Arduino/libraries/`.
+1. Navigate to [AsyncESP32_SC_W6100_Manager](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) page.
+2. Download the latest release `AsyncESP32_SC_W6100_Manager-main.zip`.
+3. Extract the zip file to `AsyncESP32_SC_W6100_Manager-main` directory 
+4. Copy the whole `AsyncESP32_SC_W6100_Manager-main` folder to Arduino libraries' directory such as `~/Arduino/libraries/`.
 
 ### VS Code & PlatformIO:
 
 1. Install [VS Code](https://code.visualstudio.com/)
 2. Install [PlatformIO](https://platformio.org/platformio-ide)
-3. Install [**AsyncESP32_W6100_Manager** library](https://registry.platformio.org/libraries/khoih-prog/AsyncESP32_W6100_Manager) by using [Library Manager](https://registry.platformio.org/libraries/khoih-prog/AsyncESP32_W6100_Manager/installation). Search for **AsyncESP32_W6100_Manager** in [Platform.io Author's Libraries](https://platformio.org/lib/search?query=author:%22Khoi%20Hoang%22)
+3. Install [**AsyncESP32_SC_W6100_Manager** library](https://registry.platformio.org/libraries/khoih-prog/AsyncESP32_SC_W6100_Manager) by using [Library Manager](https://registry.platformio.org/libraries/khoih-prog/AsyncESP32_SC_W6100_Manager/installation). Search for **AsyncESP32_SC_W6100_Manager** in [Platform.io Author's Libraries](https://platformio.org/lib/search?query=author:%22Khoi%20Hoang%22)
 4. Use included [platformio.ini](platformio/platformio.ini) file from examples to ensure that all dependent libraries will installed automatically. Please visit documentation for the other options and examples at [Project Configuration File](https://docs.platformio.org/page/projectconf.html)
 
 ---
@@ -238,7 +314,7 @@ to
 
 It's advisable to use the latest [`LittleFS_esp32 v1.0.6+`](https://github.com/lorol/LITTLEFS) to avoid the issue.
 
-Thanks to [Roshan](https://github.com/solroshan) to report the issue in [Error esp_littlefs.c 'utime_p'](https://github.com/khoih-prog/AsyncESP32_W6100_Manager/issues/28) 
+Thanks to [Roshan](https://github.com/solroshan) to report the issue in [Error esp_littlefs.c 'utime_p'](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/issues/28) 
 
 ---
 ---
@@ -251,19 +327,19 @@ The current library implementation, using `xyz-Impl.h` instead of standard `xyz.
 You can use
 
 ```cpp
-#include <AsyncESP32_W6100_Manager.hpp>         //https://github.com/khoih-prog/AsyncESP32_W6100_Manager
+#include <AsyncESP32_SC_W6100_Manager.hpp>               //https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager
 ```
 
-in many files. But be sure to use the following `#include <AsyncESP32_W6100_Manager.h>` **in just 1 `.h`, `.cpp` or `.ino` file**, which must **not be included in any other file**, to avoid `Multiple Definitions` Linker Error
+in many files. But be sure to use the following `#include <AsyncESP32_SC_W6100_Manager.h>` **in just 1 `.h`, `.cpp` or `.ino` file**, which must **not be included in any other file**, to avoid `Multiple Definitions` Linker Error
 
 ```cpp
 // To be included only in main(), .ino with setup() to avoid `Multiple Definitions` Linker Error
-#include <AsyncESP32_W6100_Manager.h>           //https://github.com/khoih-prog/AsyncESP32_W6100_Manager
+#include <AsyncESP32_SC_W6100_Manager.h>          //https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager
 ```
 
 Check [Async_ConfigOnDoubleReset_Multi](examples/Async_ConfigOnDoubleReset_Multi) for an example how and where to do so.
 
-Have a look at the discussion in [Different behaviour using the src_cpp or src_h lib #80](https://github.com/khoih-prog/AsyncESP32_W6100_Manager/discussions/80)
+Have a look at the discussion in [Different behaviour using the src_cpp or src_h lib #80](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/discussions/80)
 
 ---
 ---
@@ -301,7 +377,7 @@ Look in file [**adc_common.c**](https://github.com/espressif/esp-idf/blob/master
 
 - In order to use `ADC2` for other functions, we have to **acquire complicated firmware locks and very difficult to do**
 - So, it's not advisable to use `ADC2` with WiFi/BlueTooth (BT/BLE).
-- Use `ADC1`, and pins **GPIO32-GPIO39**
+- Use `ADC1`, and pins GPIO32-GPIO39
 - If somehow it's a must to use those pins serviced by `ADC2` (**GPIO0, 2, 4, 12, 13, 14, 15, 25, 26 and 27**), use the **fix mentioned at the end** of [**ESP_WiFiManager Issue 39: Not able to read analog port when using the autoconnect example**](https://github.com/khoih-prog/ESP_WiFiManager/issues/39) to work with ESP32 WiFi/BlueTooth (BT/BLE).
 
 ---
@@ -393,10 +469,9 @@ then connect `WebBrowser` to configurable ConfigPortal IP address, e.g. `192.168
 
 ////////////////////////////////////////////////////
 
-#include <AsyncESP32_W6100_Manager.h>               //https://github.com/khoih-prog/AsyncESP32_W6100_Manager
+#include <AsyncESP32_SC_W6100_Manager.h>               //https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager
 
 #define HTTP_PORT     80
-
 ```
 ---
 
@@ -531,7 +606,7 @@ bool initialConfig = false;
 
 // Use false if you don't like to display Available Pages in Information Page of Config Portal
 // Comment out or use true to display Available Pages in Information Page of Config Portal
-// Must be placed before #include <AsyncESP32_W6100_Manager.h>
+// Must be placed before #include <AsyncESP32_SC_W6100_Manager.h>
 #define USE_AVAILABLE_PAGES     true  //false
 
 // To permit disable/enable StaticIP configuration in Config Portal from sketch. Valid only if DHCP is used.
@@ -608,7 +683,7 @@ bool initialConfig = false;
 IPAddress dns1IP      = gatewayIP;
 IPAddress dns2IP      = IPAddress(8, 8, 8, 8);
 
-#include <AsyncESP32_W6100_Manager.h>               //https://github.com/khoih-prog/AsyncESP32_W6100_Manager
+#include <AsyncESP32_SC_W6100_Manager.h>               //https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager
 
 #define HTTP_PORT     80
 
@@ -617,7 +692,7 @@ AsyncDNSServer dnsServer;
 
 ///////////////////////////////////////////
 /******************************************
-   // Defined in AsyncESP32_W6100_Manager.hpp
+   // Defined in AsyncESP32_SC_W6100_Manager.hpp
   typedef struct
   {
     IPAddress _sta_static_ip;
@@ -785,8 +860,8 @@ IPAddress dns2IP      = IPAddress(8, 8, 8, 8);
 
 
 ```cpp
-//AsyncESP32_W6100_Manager.setSTAStaticIPConfig(stationIP, gatewayIP, netMask, dns1IP, dns2IP);
-AsyncESP32_W6100_Manager.setSTAStaticIPConfig(WM_STA_IPconfig);
+//AsyncESP32_SC_W6100_manager.setSTAStaticIPConfig(stationIP, gatewayIP, netMask, dns1IP, dns2IP);
+AsyncESP32_SC_W6100_manager.setSTAStaticIPConfig(WM_STA_IPconfig);
 ```
 
 ---
@@ -837,7 +912,7 @@ AsyncESP32_W6100_Manager.setSTAStaticIPConfig(WM_STA_IPconfig);
 
 
 ```cpp
-String tempTZ = AsyncESP32_W6100_Manager.getTimezoneName();
+String tempTZ = AsyncESP32_SC_W6100_manager.getTimezoneName();
 ```
 
 ---
@@ -867,7 +942,7 @@ configTzTime(WM_config.TZ, "time.nist.gov", "0.pool.ntp.org", "1.pool.ntp.org");
 2. To convert from `_timezoneName` to `TZ`, use the function `getTZ()` as follows:
 
 ```cpp
-const char * TZ_Result = AsyncESP32_W6100_Manager.getTZ(_timezoneName);
+const char * TZ_Result = AsyncESP32_SC_W6100_manager.getTZ(_timezoneName);
 ```
 
 The conversion depends on the stored TZs, which is using some memory, and can cause issue for ESP8266 in certain cases. Therefore, enable just the region you're interested.
@@ -929,14 +1004,14 @@ void printLocalTime()
 - When you want to open a config portal, with default `DHCP` hostname `ESP8266-XXXXXX` or `ESP32-XXXXXX`, just add
 
 ```cpp
-#include <AsyncESP32_W6100_Manager.h>              //https://github.com/khoih-prog/AsyncESP32_W6100_Manager
+#include <AsyncESP32_SC_W6100_Manager.h>              //https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager
 
 #define HTTP_PORT           80
 
 AsyncWebServer webServer(HTTP_PORT);
 AsyncDNSServer dnsServer;
 
-AsyncESP32_W6100_Manager AsyncESP32_W6100_Manager(&webServer, &dnsServer);
+AsyncESP32_SC_W6100_Manager AsyncESP32_SC_W6100_manager(&webServer, &dnsServer);
 ```
 
 If you'd like to have a personalized hostname 
@@ -945,13 +1020,13 @@ If you'd like to have a personalized hostname
 add
 
 ```cpp
-AsyncESP32_W6100_Manager AsyncESP32_W6100_Manager(&webServer, &dnsServer, "Personalized-HostName");
+AsyncESP32_SC_W6100_Manager AsyncESP32_SC_W6100_manager(&webServer, &dnsServer, "Personalized-HostName");
 ```
 
 then later call
 
 ```cpp
-AsyncESP32_W6100_Manager.startConfigPortal()
+AsyncESP32_SC_W6100_manager.startConfigPortal()
 ```
 
 While in Config Portal, connect to it using its AP IP, e.g. `192.168.2.232`, configure Credentials, then save. The settings will be saved in non volatile memory. It will then reboot and autoconnect.
@@ -962,7 +1037,7 @@ While in Config Portal, connect to it using its AP IP, e.g. `192.168.2.232`, con
 ### HOWTO Add Dynamic Parameters
 
 
-These illustrating steps is based on the example [Async_ConfigOnSwitchFS](https://github.com/khoih-prog/AsyncESP32_W6100_Manager/tree/main/examples/Async_ConfigOnSwitchFS)
+These illustrating steps is based on the example [Async_ConfigOnSwitchFS](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/tree/main/examples/Async_ConfigOnSwitchFS)
 
 ###  1. Determine the variables to be configured via Config Portal (CP)
 
@@ -1006,7 +1081,7 @@ int pinScl                          = PIN_D1;     // Pin D1 mapped to pin GPIO5 
 
 ###  2. Initialize the variables to prepare for Config Portal (CP)
 
-The example [Async_ConfigOnSwitchFS](https://github.com/khoih-prog/AsyncESP32_W6100_Manager/tree/main/examples/Async_ConfigOnSwitchFS) will open the CP whenever a SW press is detected in `loop()`. So the code to add `dynamic variables` will be there, just after the CP `AsyncESP32_W6100_Manager` class initialization to create `AsyncESP32_W6100_Manager` object.
+The example [Async_ConfigOnSwitchFS](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/tree/main/examples/Async_ConfigOnSwitchFS) will open the CP whenever a SW press is detected in `loop()`. So the code to add `dynamic variables` will be there, just after the CP `AsyncESP32_SC_W6100_Manager` class initialization to create `AsyncESP32_SC_W6100_Manager` object.
 
 ```cpp
 void loop()
@@ -1018,7 +1093,7 @@ void loop()
     digitalWrite(LED_BUILTIN, LED_ON); // turn the LED on by making the voltage LOW to tell us we are in configuration mode.
 
     //Local initialization. Once its business is done, there is no need to keep it around
-    AsyncESP32_W6100_Manager AsyncESP32_W6100_Manager(&webServer, &dnsServer, "ConfigOnSwitchFS");
+    AsyncESP32_SC_W6100_Manager AsyncESP32_SC_W6100_manager(&webServer, &dnsServer, "ConfigOnSwitchFS");
 
     //Check if there is stored WiFi router/password credentials.
     //If not found, device will remain in configuration mode until switched off via webserver.
@@ -1125,7 +1200,7 @@ if (sensorDht22)
 
 ###  3. Add the variables to Config Portal (CP)
 
-Adding those `ESPAsync_EMParameter` objects created in Step 2 using the function `addParameter()` of object `AsyncESP32_W6100_Manager`
+Adding those `ESPAsync_EMParameter` objects created in Step 2 using the function `addParameter()` of object `AsyncESP32_SC_W6100_Manager`
 
 #### 3.1 addParameter() function Prototype:
 
@@ -1142,10 +1217,10 @@ Add parameter objects, previously created in Step 2, such as : `p_thingspeakApiK
 ```cpp
 //add all parameters here
 
-AsyncESP32_W6100_Manager.addParameter(&p_thingspeakApiKey);
-AsyncESP32_W6100_Manager.addParameter(&p_sensorDht22);
-AsyncESP32_W6100_Manager.addParameter(&p_pinSda);
-AsyncESP32_W6100_Manager.addParameter(&p_pinScl);
+AsyncESP32_SC_W6100_manager.addParameter(&p_thingspeakApiKey);
+AsyncESP32_SC_W6100_manager.addParameter(&p_sensorDht22);
+AsyncESP32_SC_W6100_manager.addParameter(&p_pinSda);
+AsyncESP32_SC_W6100_manager.addParameter(&p_pinScl);
 ```
 
 ---
@@ -1161,7 +1236,7 @@ We can write directly to a **well-defined structure of our choice**, but the cur
 
 #### 4.1 Getting variables' data from CP
 
-After users select `Save`, the CP `AsyncESP32_W6100_Manager` object will save the user input data into related `ESPAsync_EMParameter` objects.
+After users select `Save`, the CP `AsyncESP32_SC_W6100_Manager` object will save the user input data into related `ESPAsync_EMParameter` objects.
 
 We can now retrieve the data, using `getValue()` function, for each `ESPAsync_EMParameter` object. Then we can utilize the data for our purpose, such as `thingspeakApiKey` to log in, `sensorDht22` type to know how to handle the sensor, `pinSda` and `pinSda` to know which pins to use to communicate with the DHT sensor.
 
@@ -1538,26 +1613,26 @@ In `ConfigPortal Mode`, it starts an access point @ the current Static or DHCP I
  Connect to it by going to, e.g. `http://192.168.2.232`, you'll see this `Main` page:
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W6100_Manager/raw/main/Images/Main.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/Main.png">
 </p>
 
 Select `Information` to enter the Info page where the board info will be shown (long page)
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W6100_Manager/raw/main/Images/Info.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/Info.png">
 </p>
 
 
 Select `Configuration` to enter this page where you can modify its Credentials
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W6100_Manager/raw/main/Images/Configuration_Standard.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/Configuration_Standard.png">
 </p>
 
 Enter your credentials, then click **Save**. The Credentials will be saved and the board continues, or reboots if necessary, to connect to the selected Static IP or DHCP.
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W6100_Manager/raw/main/Images/Saved.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/Saved.png">
 </p>
 
 
@@ -1583,7 +1658,7 @@ This gets called when custom parameters have been set **AND** a connection has b
 See [Async_ConfigOnSwitchFS Example](examples/Async_ConfigOnSwitchFS).
 
 ```cpp
-AsyncESP32_W6100_Manager.setSaveConfigCallback(saveConfigCallback);
+AsyncESP32_SC_W6100_manager.setSaveConfigCallback(saveConfigCallback);
 ```
 saveConfigCallback declaration and example
 
@@ -1606,7 +1681,7 @@ void saveConfigCallback ()
 If you need to set a timeout so the `ESP32` doesn't hang waiting to be configured for ever. 
 
 ```cpp
-AsyncESP32_W6100_Manager.setConfigPortalTimeout(120);
+AsyncESP32_SC_W6100_manager.setConfigPortalTimeout(120);
 ```
 
 which will wait 2 minutes (120 seconds). When the time passes, the `startConfigPortal()` function will return and continue the sketch, 
@@ -1630,30 +1705,30 @@ void loop()
 
     //Local initialization. Once its business is done, there is no need to keep it around
     // Use this to default DHCP hostname to ESP32-XXXXXX
-    //AsyncESP32_W6100_Manager AsyncESP32_W6100_manager(&webServer, &dnsServer);
+    //AsyncESP32_SC_W6100_Manager AsyncESP32_SC_W6100_manager(&webServer, &dnsServer);
     // Use this to personalize DHCP hostname (RFC952 conformed)
     AsyncWebServer webServer(HTTP_PORT);
 
 #if ( USING_ESP32_S2 || USING_ESP32_C3 )
-    AsyncESP32_W6100_Manager AsyncESP32_W6100_manager(&webServer, NULL, "ConfigOnSwitch");
+    AsyncESP32_SC_W6100_Manager AsyncESP32_SC_W6100_manager(&webServer, NULL, "ConfigOnSwitch");
 #else
     AsyncDNSServer dnsServer;
 
-    AsyncESP32_W6100_Manager AsyncESP32_W6100_manager(&webServer, &dnsServer, "ConfigOnSwitch");
+    AsyncESP32_SC_W6100_Manager AsyncESP32_SC_W6100_manager(&webServer, &dnsServer, "ConfigOnSwitch");
 #endif
 
 #if !USE_DHCP_IP
 #if USE_CONFIGURABLE_DNS
     // Set static IP, Gateway, Subnetmask, DNS1 and DNS2
-    AsyncESP32_W6100_manager.setSTAStaticIPConfig(stationIP, gatewayIP, netMask, dns1IP, dns2IP);
+    AsyncESP32_SC_W6100_manager.setSTAStaticIPConfig(stationIP, gatewayIP, netMask, dns1IP, dns2IP);
 #else
     // Set static IP, Gateway, Subnetmask, Use auto DNS1 and DNS2.
-    AsyncESP32_W6100_manager.setSTAStaticIPConfig(stationIP, gatewayIP, netMask);
+    AsyncESP32_SC_W6100_manager.setSTAStaticIPConfig(stationIP, gatewayIP, netMask);
 #endif
 #endif
 
 #if USING_CORS_FEATURE
-    AsyncESP32_W6100_manager.setCORSHeader("Your Access-Control-Allow-Origin");
+    AsyncESP32_SC_W6100_manager.setCORSHeader("Your Access-Control-Allow-Origin");
 #endif
 
     //Check if there is stored credentials.
@@ -1662,21 +1737,22 @@ void loop()
 
     if (loadConfigData())
     {
-      AsyncESP32_W6100_manager.setConfigPortalTimeout(
-        120); //If no access point name has been previously entered disable timeout.
+      //If no access point name has been previously entered disable timeout.
+      AsyncESP32_SC_W6100_manager.setConfigPortalTimeout(120); 
+      
       Serial.println(F("Got stored Credentials. Timeout 120s for Config Portal"));
     }
     else
     {
       // Enter CP only if no stored SSID on flash and file
-      AsyncESP32_W6100_manager.setConfigPortalTimeout(0);
+      AsyncESP32_SC_W6100_manager.setConfigPortalTimeout(0);
       Serial.println(F("Open Config Portal without Timeout: No stored Credentials."));
       initialConfig = true;
     }
 
     //Starts an access point
     //and goes into a blocking loop awaiting configuration
-    if (!AsyncESP32_W6100_manager.startConfigPortal())
+    if (!AsyncESP32_SC_W6100_manager.startConfigPortal())
       Serial.println(F("Not connected to ETH network but continuing anyway."));
     else
     {
@@ -1686,14 +1762,14 @@ void loop()
     }
 
 #if USE_ESP_ETH_MANAGER_NTP
-    String tempTZ = AsyncESP32_W6100_manager.getTimezoneName();
+    String tempTZ = AsyncESP32_SC_W6100_manager.getTimezoneName();
 
     if (strlen(tempTZ.c_str()) < sizeof(Ethconfig.TZ_Name) - 1)
       strcpy(Ethconfig.TZ_Name, tempTZ.c_str());
     else
       strncpy(Ethconfig.TZ_Name, tempTZ.c_str(), sizeof(Ethconfig.TZ_Name) - 1);
 
-    const char * TZ_Result = AsyncESP32_W6100_manager.getTZ(Ethconfig.TZ_Name);
+    const char * TZ_Result = AsyncESP32_SC_W6100_manager.getTZ(Ethconfig.TZ_Name);
 
     if (strlen(TZ_Result) < sizeof(Ethconfig.TZ) - 1)
       strcpy(Ethconfig.TZ, TZ_Result);
@@ -1714,7 +1790,7 @@ void loop()
 
 #endif
 
-    AsyncESP32_W6100_manager.getSTAStaticIPConfig(EthSTA_IPconfig);
+    AsyncESP32_SC_W6100_manager.getSTAStaticIPConfig(EthSTA_IPconfig);
 
     saveConfigData();
 
@@ -1749,11 +1825,11 @@ See  [Async_ConfigOnSwitch](examples/Async_ConfigOnSwitch) example for a more co
 
 #### Custom Parameters
 
-Many applications need configuration parameters like `MQTT host and port`, [Blynk](http://www.blynk.cc) or [emoncms](http://emoncms.org) tokens, etc. While it is possible to use [`AsyncESP32_W6100_Manager`](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) to collect additional parameters, it is better to read these parameters from a web service once [`AsyncESP32_W6100_Manager`](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) has been used to connect to the Internet.
+Many applications need configuration parameters like `MQTT host and port`, [Blynk](http://www.blynk.cc) or [emoncms](http://emoncms.org) tokens, etc. While it is possible to use [`AsyncESP32_SC_W6100_Manager`](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) to collect additional parameters, it is better to read these parameters from a web service once [`AsyncESP32_SC_W6100_Manager`](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) has been used to connect to the Internet.
 
-To capture other parameters with [`AsyncESP32_W6100_Manager`](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) is a little bit more complicated than all the other features. This requires adding custom HTML to your form. 
+To capture other parameters with [`AsyncESP32_SC_W6100_Manager`](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) is a little bit more complicated than all the other features. This requires adding custom HTML to your form. 
 
-If you want to do it with [`AsyncESP32_W6100_Manager`](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) see the example [Async_ConfigOnSwitchFS](examples/Async_ConfigOnSwitchFS)
+If you want to do it with [`AsyncESP32_SC_W6100_Manager`](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) see the example [Async_ConfigOnSwitchFS](examples/Async_ConfigOnSwitchFS)
 
 ---
 
@@ -1765,9 +1841,8 @@ You can set a custom IP for both AP (access point, config mode) and STA (station
 ##### Custom Station (client) Static IP Configuration
 
 This will use the specified IP configuration instead of using DHCP in station mode.
-
 ```cpp
-AsyncESP32_W6100_Manager.setSTAStaticIPConfig(IPAddress(192,168,2,232), IPAddress(192,168,2,1), IPAddress(255,255,255,0));
+AsyncESP32_SC_W6100_manager.setSTAStaticIPConfig(IPAddress(192,168,2,232), IPAddress(192,168,2,1), IPAddress(255,255,255,0));
 ```
 
 ---
@@ -1782,14 +1857,14 @@ The options are:
 You can use this to any html bit to the head of the ConfigPortal. If you add a `<style>` element, bare in mind it overwrites the included css, not replaces.
 
 ```cpp
-AsyncESP32_W6100_Manager.setCustomHeadElement("<style>html{filter: invert(100%); -webkit-filter: invert(100%);}</style>");
+AsyncESP32_SC_W6100_manager.setCustomHeadElement("<style>html{filter: invert(100%); -webkit-filter: invert(100%);}</style>");
 ```
 
 - inject a custom bit of html in the configuration form
 
 ```cpp
 ESPAsync_EMParameter custom_text("<p>This is just a text paragraph</p>");
-AsyncESP32_W6100_Manager.addParameter(&custom_text);
+AsyncESP32_SC_W6100_manager.addParameter(&custom_text);
 ```
 
 - inject a custom bit of html in a configuration form element
@@ -1803,7 +1878,25 @@ ESPAsync_EMParameter custom_mqtt_server("server", "mqtt server", "iot.eclipse", 
 ---
 ---
 
-### How to connect W6100 to ESP32
+### How to connect W6100 to ESP32_S2/S3/C3
+
+
+##### W6100
+
+`FULL_DUPLEX, 100Mbps`
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/W6100.png">
+</p>
+
+
+---
+
+#### ESP32S3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/ESP32S3_DEV.png">
+</p> 
 
 You can change the `INT` pin to another one. Default is `GPIO4`
 
@@ -1814,26 +1907,69 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
 ---
 
-#### W6100
-
-`FULL_DUPLEX, 100Mbps`
-
-<p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W6100_Manager/raw/main/Images/W6100.png">
-</p>
+|W6100|<--->|ESP32_S3|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO11|
+|MISO|<--->|GPIO13|
+|SCK|<--->|GPIO12|
+|SS|<--->|GPIO10|
+|INT|<--->|GPIO4|
+|RST|<--->|RST|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
 
 ---
 
-#### ESP32_DEV
+#### ESP32S2_DEV
 
 
-|W6100|<--->|ESP32|
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/ESP32S2_DEV.png">
+</p> 
+
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            4
+```
+
+|W6100|<--->|ESP32_S2|
 |:-:|:-:|:-:|
-|MOSI|<--->|GPIO23|
-|MISO|<--->|GPIO19|
-|SCK|<--->|GPIO18|
-|SS/CS|<--->|GPIO5|
+|MOSI|<--->|GPIO35|
+|MISO|<--->|GPIO37|
+|SCK|<--->|GPIO36|
+|SS|<--->|GPIO34|
 |INT|<--->|GPIO4|
+|RST|<--->|RST|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
+
+
+---
+
+#### ESP32C3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/raw/main/Images/ESP32_C3_DevKitC_02.png">
+</p> 
+
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            10
+```
+
+|W6100|<--->|ESP32_C3|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO6|
+|MISO|<--->|GPIO5|
+|SCK|<--->|GPIO4|
+|SS|<--->|GPIO7|
+|INT|<--->|GPIO10|
 |RST|<--->|RST|
 |GND|<--->|GND|
 |3.3V|<--->|3.3V|
@@ -1858,29 +1994,29 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 ### Example [Async_ConfigOnSwitch](examples/Async_ConfigOnSwitch)
 
 
-https://github.com/khoih-prog/AsyncESP32_W6100_Manager/blob/f20021ce257fbbd50cb154fda416b78f31f18f1b/examples/Async_ConfigOnSwitch/Async_ConfigOnSwitch.ino#L29-L930
+https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/blob/e28458dd2f05bd07d048bbef059172a9925a0eab/examples/Async_ConfigOnSwitch/Async_ConfigOnSwitch.ino#L26-L933
 
 ---
 ---
 
 ### Debug Terminal Output Samples
 
-#### 1. Async_ConfigOnDoubleReset using LittleFS on ESP32_DEV with ESP32_W6100
+#### 1. Async_ConfigOnDoubleReset using LittleFS on ESP32S3_DEV with ESP32_S3_W6100
 
 ##### 1.1 DRD => Config Portal
 
-This is terminal debug output when running [Async_ConfigOnDoubleReset](examples/Async_ConfigOnDoubleReset) on  **ESP32_W6100**. `Config Portal` was requested by DRD to input and save Credentials, such as Static IP address.
+This is terminal debug output when running [Async_ConfigOnDoubleReset](examples/Async_ConfigOnDoubleReset) on  **ESP32_S3_W6100**. `Config Portal` was requested by DRD to input and save Credentials, such as Static IP address.
 
 ```
-Starting Async_ConfigOnDoubleReset using LittleFS on ESP32_DEV with ESP32_W6100
-AsyncESP32_W6100_Manager v1.0.0
+Starting Async_ConfigOnDoubleReset using LittleFS on ESP32S3_DEV with ESP32_S3_W6100
+AsyncESP32_SC_W6100_Manager v1.1.0
 ESP_DoubleResetDetector v1.3.2
 [EM] Default SPI pinout:
 [EM] SPI_HOST: 2
-[EM] MOSI: 23
-[EM] MISO: 19
-[EM] SCK: 18
-[EM] CS: 5
+[EM] MOSI: 11
+[EM] MISO: 13
+[EM] SCK: 12
+[EM] CS: 10
 [EM] INT: 4
 [EM] SPI Clock (MHz): 25
 [EM] =========================
@@ -1889,70 +2025,76 @@ ETH Started
 [EM] RFC925 Hostname = AsyncConfigOnDoubleReset
 [EM] setSTAStaticIPConfig
 [EM] Set CORS Header to :  Your Access-Control-Allow-Origin
-[EM] LoadWiFiCfgFile 
-[EM] OK
-[EM] stationIP = 192.168.2.232 , gatewayIP = 192.168.2.1
-[EM] netMask = 255.255.255.0
-[EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
-Got stored Credentials. Timeout 120s for Config Portal
-[EM] Current TZ_Name = America/New_York , TZ =  EST5EDT,M3.2.0,M11.1.0
-[EM] stationIP = 192.168.2.232 , gatewayIP = 192.168.2.1
-[EM] netMask = 255.255.255.0
-[EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
+[EM] LoadCfgFile 
+[EM] failed
+[EM] stationIP = 0.0.0.0 , gatewayIP = 0.0.0.0
+[EM] netMask = 0.0.0.0
+[EM] dns1IP = 0.0.0.0 , dns2IP = 0.0.0.0
 ETH Connected
-ETH MAC: 98:F4:AB:08:52:8B, IPv4: 192.168.2.232
+ETH MAC: DE:AD:BE:EF:BE:12, IPv4: 192.168.2.103
 FULL_DUPLEX, 100Mbps
 LittleFS Flag read = 0xD0D01234
 doubleResetDetected
 Saving config file...
 Saving config file OK
 Open Config Portal without Timeout: Double Reset Detected
-Starting configuration portal @ 192.168.2.232
-[EM] Config Portal IP address = 192.168.2.232
+Starting configuration portal @ 192.168.2.103
+[EM] _configPortalStart millis() = 2557
+[EM] Config Portal IP address = 192.168.2.103
 [EM] HTTP server started
 [EM] startConfigPortal : Enter loop
-[EM] Handle root
-[EM] request host IP = 192.168.2.232
+[EM] handleRoot
+[EM] request host IP = 192.168.2.103
+[EM] request host IP = 192.168.2.103
 [EM] Info
 [EM] Info page sent
-[EM] Handle root
-[EM] request host IP = 192.168.2.232
-[EM] Handle WiFi
+[EM] handleRoot
+[EM] request host IP = 192.168.2.103
+[EM] Handle ETH
 [EM] Static IP = 192.168.2.232
 [EM] Sent config page
-[EM] WiFi save
+[EM] ETH save
 [EM] TZ = America/New_York
-[EM] New Static IP = 192.168.2.233
+[EM] New Static IP = 192.168.2.232
 [EM] New Static Gateway = 192.168.2.1
 [EM] New Static Netmask = 255.255.255.0
 [EM] New Static DNS1 = 192.168.2.1
 [EM] New Static DNS2 = 8.8.8.8
 [EM] Sent eth save page
-[EM] Stop ConfigPortal
-WiFi connected...yeey :)
+[EM] stopConfigPortal
+ETH network connected...yeey :)
 [EM] Saving current TZ_Name = America/New_York , TZ =  EST5EDT,M3.2.0,M11.1.0
 [EM] getSTAStaticIPConfig
-[EM] SaveWiFiCfgFile 
-[EM] stationIP = 192.168.2.233 , gatewayIP = 192.168.2.1
+[EM] SaveCfgFile 
+[EM] stationIP = 192.168.2.232 , gatewayIP = 192.168.2.1
 [EM] netMask = 255.255.255.0
 [EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
 [EM] OK
-Current IP = 192.168.2.232. Reset to take new IP = 192.168.2.233
-ets Jun  8 2016 00:22:57
+Current IP = 192.168.2.103. Reset to take new IP = 192.168.2.232
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4208a942
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3808,len:0x43c
+load:0x403c9700,len:0xbec
+load:0x403cc700,len:0x2a3c
+entry 0x403c98d8
 ```
 
 ##### 1.2. Get new Static IP after reset
 
 ```
-Starting Async_ConfigOnDoubleReset using LittleFS on ESP32_DEV with ESP32_W6100
-AsyncESP32_W6100_Manager v1.0.0
+Starting Async_ConfigOnDoubleReset using LittleFS on ESP32S3_DEV with ESP32_S3_W6100
+AsyncESP32_SC_W6100_Manager v1.1.0
 ESP_DoubleResetDetector v1.3.2
 [EM] Default SPI pinout:
 [EM] SPI_HOST: 2
-[EM] MOSI: 23
-[EM] MISO: 19
-[EM] SCK: 18
-[EM] CS: 5
+[EM] MOSI: 11
+[EM] MISO: 13
+[EM] SCK: 12
+[EM] CS: 10
 [EM] INT: 4
 [EM] SPI Clock (MHz): 25
 [EM] =========================
@@ -1961,24 +2103,24 @@ ETH Started
 [EM] RFC925 Hostname = AsyncConfigOnDoubleReset
 [EM] setSTAStaticIPConfig
 [EM] Set CORS Header to :  Your Access-Control-Allow-Origin
-[EM] LoadWiFiCfgFile 
+[EM] LoadCfgFile 
 [EM] OK
-[EM] stationIP = 192.168.2.233 , gatewayIP = 192.168.2.1
+[EM] stationIP = 192.168.2.232 , gatewayIP = 192.168.2.1
 [EM] netMask = 255.255.255.0
 [EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
 Got stored Credentials. Timeout 120s for Config Portal
 [EM] Current TZ_Name = America/New_York , TZ =  EST5EDT,M3.2.0,M11.1.0
-[EM] stationIP = 192.168.2.233 , gatewayIP = 192.168.2.1
+[EM] stationIP = 192.168.2.232 , gatewayIP = 192.168.2.1
 [EM] netMask = 255.255.255.0
 [EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
 ETH Connected
-ETH MAC: 98:F4:AB:08:52:8B, IPv4: 192.168.2.233
+ETH MAC: DE:AD:BE:EF:FE:05, IPv4: 192.168.2.232
 FULL_DUPLEX, 100Mbps
 LittleFS Flag read = 0xD0D04321
 No doubleResetDetected
 Saving config file...
 Saving config file OK
-After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.233
+After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.232
 [EM] freeing allocated params!
 Local Date/Time: Sat Jan 14 18:12:14 2023
 Stop doubleResetDetecting
@@ -1986,25 +2128,24 @@ Saving config file...
 Saving config file OK
 Local Date/Time: Sat Jan 14 18:13:14 2023
 Local Date/Time: Sat Jan 14 18:14:14 2023
-Local Date/Time: Sat Jan 14 18:15:14 2023
 ```
 
 ---
 
-#### 2. Async_ConfigOnSwichFS using LittleFS on ESP32_DEV with ESP32_W6100
+#### 2. Async_ConfigOnSwichFS using LittleFS on ESP32S3_DEV with ESP32_S3_W6100
 
-This is terminal debug output when running [Async_ConfigOnSwichFS](examples/Async_ConfigOnSwichFS) on  **ESP32_W6100**. `Config Portal` was requested to input and save Credentials.
+This is terminal debug output when running [Async_ConfigOnSwichFS](examples/Async_ConfigOnSwichFS) on  **ESP32_S3_W6100**. `Config Portal` was requested to input and save Credentials.
 
 
 ```
-Starting Async_ConfigOnSwichFS using LittleFS on ESP32_DEV with ESP32_W6100
-AsyncESP32_W6100_Manager v1.0.0
-[EM] Default SPI pinout:
+Starting Async_ConfigOnSwichFS using LittleFS on ESP32S3_DEV with ESP32_S3_W6100
+AsyncESP32_SC_W6100_Manager v1.1.0
+EM] Default SPI pinout:
 [EM] SPI_HOST: 2
-[EM] MOSI: 23
-[EM] MISO: 19
-[EM] SCK: 18
-[EM] CS: 5
+[EM] MOSI: 11
+[EM] MISO: 13
+[EM] SCK: 12
+[EM] CS: 10
 [EM] INT: 4
 [EM] SPI Clock (MHz): 25
 [EM] =========================
@@ -2026,11 +2167,11 @@ Got stored Credentials. Timeout 120s for Config Portal
 [EM] netMask = 255.255.255.0
 [EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
 ETH Connected
-ETH MAC: 98:F4:AB:08:52:8B, IPv4: 192.168.2.232
+ETH MAC: DE:AD:BE:EF:FE:07, IPv4: 192.168.2.232
 FULL_DUPLEX, 100Mbps
 After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.232
 [EM] freeing allocated params!
-Local Date/Time: Thu Dec  8 16:31:38 2022
+Local Date/Time: Fri Dec 23 15:17:07 2022
 
 Configuration portal requested.
 [EM] RFC925 Hostname = ConfigOnSwitchFS
@@ -2088,38 +2229,39 @@ Saving config file
 }
 Config file was successfully saved
 [EM] freeing allocated params!
+Local Date/Time: Sat Jan 14 18:16:14 2023
 Local Date/Time: Sat Jan 14 18:17:14 2023
-Local Date/Time: Sat Jan 14 18:18:14 2023
 ```
 
 ---
 
-#### 3. Async_ESP32_FSWebServer_DRD using LittleFS on ESP32_DEV with ESP32_W6100
+#### 3. Async_ESP32_FSWebServer_DRD using LittleFS on ESP32S3_DEV with ESP32_S3_W6100
 
-This is terminal debug output when running [Async_ESP32_FSWebServer_DRD](examples/Async_ESP32_FSWebServer_DRD)  on  **ESP32_W6100**. `Config Portal` was requested by DRD (also using **LittleFS**) to input and save Credentials.
+This is terminal debug output when running [Async_ESP32_FSWebServer_DRD](examples/Async_ESP32_FSWebServer_DRD)  on  **ESP32_S3_W6100**. `Config Portal` was requested by DRD (also using **LittleFS**) to input and save Credentials.
 
 
 ```cpp
-Starting Async_ESP32_FSWebServer_DRD using LittleFS on ESP32_DEV with ESP32_W6100
-AsyncESP32_W6100_Manager v1.0.0
+Starting Async_ESP32_FSWebServer_DRD using LittleFS on ESP32S3_DEV with ESP32_S3_W6100
+AsyncESP32_SC_W6100_Manager v1.1.0
 ESP_DoubleResetDetector v1.3.2
 FS File: CanadaFlag_1.png, size: 40.25KB
 FS File: CanadaFlag_2.png, size: 8.12KB
 FS File: CanadaFlag_3.jpg, size: 10.89KB
+FS File: ConfigMQTT.json, size: 153B
 FS File: drd.dat, size: 4B
 FS File: edit.htm.gz, size: 4.02KB
 FS File: eth_cred.dat, size: 142B
 FS File: favicon.ico, size: 1.12KB
 FS File: graphs.js.gz, size: 1.92KB
 FS File: index.htm, size: 3.63KB
-FS File: wifi_cred.dat, size: 142B
+FS File: wifi_cred.dat, size: 334B
 
 [EM] Default SPI pinout:
 [EM] SPI_HOST: 2
-[EM] MOSI: 23
-[EM] MISO: 19
-[EM] SCK: 18
-[EM] CS: 5
+[EM] MOSI: 11
+[EM] MISO: 13
+[EM] SCK: 12
+[EM] CS: 10
 [EM] INT: 4
 [EM] SPI Clock (MHz): 25
 [EM] =========================
@@ -2137,7 +2279,7 @@ ETH Started
 [EM] netMask = 255.255.255.0
 [EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
 ETH Connected
-ETH MAC: 98:F4:AB:08:52:8B, IPv4: 192.168.2.232
+ETH MAC: DE:AD:BE:EF:FE:01, IPv4: 192.168.2.232
 FULL_DUPLEX, 100Mbps
 Got stored Credentials. Timeout 120s for Config Portal
 LittleFS Flag read = 0xD0D04321
@@ -2151,11 +2293,129 @@ Open http://192.168.2.232/edit to see the file browser
 Using username = admin and password = admin
 ===============================================================
 [EM] freeing allocated params!
-HStop doubleResetDetecting
+HNOT_FOUND: GET http://192.168.2.232/edit
+_HEADER[Host]: 192.168.2.232
+_HEADER[Connection]: keep-alive
+_HEADER[Authorization]: Digest username="admin", realm="asyncesp", nonce="795d0e2e77f0bd1ac56d88a223e30cc8", uri="/edit?edit=CanadaFlag_1.png&_cb=1671053986123", response="2cd3f09b8a62203bc800af8f141fe72e", opaque="0bc073c1bf61fa0ae678fa5892cfd2a6", qop=auth, nc=00000018, cnonce="bdcea3ba2e8cdc67"
+_HEADER[User-Agent]: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+_HEADER[DNT]: 1
+_HEADER[Accept]: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+_HEADER[Referer]: http://192.168.2.232/edit
+_HEADER[Accept-Encoding]: gzip, deflate
+_HEADER[Accept-Language]: en-GB,en-US;q=0.9,en;q=0.8,vi;q=0.7
+_GET[edit]: CanadaFlag_1.png
+_GET[_cb]: 1671053986123
+Stop doubleResetDetecting
 Saving config file...
 Saving config file OK
+HNOT_FOUND: GET http://192.168.2.232/edit
+_HEADER[Host]: 192.168.2.232
+_HEADER[Connection]: keep-alive
+_HEADER[Authorization]: Digest username="admin", realm="asyncesp", nonce="795d0e2e77f0bd1ac56d88a223e30cc8", uri="/edit?edit=index.htm", response="ffd0f819a34671946b085784d9728be1", opaque="0bc073c1bf61fa0ae678fa5892cfd2a6", qop=auth, nc=00000019, cnonce="96da1c35cdb43470"
+_HEADER[User-Agent]: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+_HEADER[DNT]: 1
+_HEADER[Accept]: */*
+_HEADER[Referer]: http://192.168.2.232/edit
+_HEADER[Accept-Encoding]: gzip, deflate
+_HEADER[Accept-Language]: en-GB,en-US;q=0.9,en;q=0.8,vi;q=0.7
+_GET[edit]: index.htm
 HHHHH HHHHHHHHHH HHHHHHHHHH HHHHHHHHHH
 ```
+
+---
+
+#### 4. Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32C3_DEV with ESP32_C3_W6100
+
+This is terminal debug output when running [Async_ConfigOnDoubleReset](examples/Async_ConfigOnDoubleReset) on  **ESP32_C3_W6100**.
+
+```
+Starting Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32C3_DEV with ESP32_C3_W6100
+AsyncESP32_SC_W6100_Manager v1.1.0
+ESP_DoubleResetDetector v1.3.2
+[EM] Default SPI pinout:
+[EM] SPI_HOST: 1
+[EM] MOSI: 6
+[EM] MISO: 5
+[EM] SCK: 4
+[EM] CS: 7
+[EM] INT: 10
+[EM] SPI Clock (MHz): 25
+[EM] =========================
+Using built-in mac_eth = 7C:DF:A1:BC:BC:53
+
+ETH Started
+[EM] RFC925 Hostname = AsyncConfigOnDoubleReset
+[EM] Set CORS Header to :  Your Access-Control-Allow-Origin
+[EM] LoadCfgFile 
+[EM] OK
+[EM] stationIP = 192.168.2.233 , gatewayIP = 192.168.2.1
+[EM] netMask = 255.255.255.0
+[EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
+Got stored Credentials. Timeout 120s for Config Portal
+[EM] Current TZ_Name = America/New_York , TZ =  EST5EDT,M3.2.0,M11.1.0
+ETH Connected
+ETH MAC: 7C:DF:A1:BC:BC:53, IPv4: 192.168.2.135
+FULL_DUPLEX, 100Mbps
+LittleFS Flag read = 0xD0D04321
+No doubleResetDetected
+Saving config file...
+Saving config file OK
+After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.135
+[EM] freeing allocated params!
+Local Date/Time: Sat Jan 14 18:21:14 2023
+Local Date/Time: Sat Jan 14 18:22:14 2023
+Local Date/Time: Sat Jan 14 18:23:14 2023
+```
+
+
+---
+
+#### 5. Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32S2_DEV with ESP32_S2_W6100
+
+This is terminal debug output when running [Async_ConfigOnDoubleReset](examples/Async_ConfigOnDoubleReset) on  **ESP32_S2_W6100**.
+
+```
+Starting Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32S2_DEV with ESP32_S2_W6100
+AsyncESP32_SC_W6100_Manager v1.1.0
+ESP_DoubleResetDetector v1.3.2
+[EM] Default SPI pinout:
+[EM] SPI_HOST: 2
+[EM] MOSI: 35
+[EM] MISO: 37
+[EM] SCK: 36
+[EM] CS: 34
+[EM] INT: 4
+[EM] SPI Clock (MHz): 25
+[EM] =========================
+Using built-in mac_eth = 7E:DF:A1:08:32:C9
+
+ETH Started
+[EM] RFC925 Hostname = AsyncConfigOnDoubleReset
+[EM] Set CORS Header to :  Your Access-Control-Allow-Origin
+[EM] LoadCfgFile 
+[EM] OK
+[EM] stationIP = 192.168.2.232 , gatewayIP = 192.168.2.1
+[EM] netMask = 255.255.255.0
+[EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
+Got stored Credentials. Timeout 120s for Config Portal
+[EM] Current TZ_Name = America/New_York , TZ =  EST5EDT,M3.2.0,M11.1.0
+ETH Connected
+ETH MAC: 7E:DF:A1:08:32:C9, IPv4: 192.168.2.133
+FULL_DUPLEX, 100Mbps
+LittleFS Flag read = 0xD0D04321
+No doubleResetDetected
+Saving config file...
+Saving config file OK
+After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.133
+[EM] freeing allocated params!
+Stop doubleResetDetecting
+Saving config file...
+Saving config file OK
+Local Date/Time: Sat Jan 14 18:27:14 2023
+Local Date/Time: Sat Jan 14 18:28:14 2023
+Local Date/Time: Sat Jan 14 18:29:14 2023
+```
+
 
 ---
 ---
@@ -2165,7 +2425,7 @@ HHHHH HHHHHHHHHH HHHHHHHHHH HHHHHHHHHH
 Debug is enabled by default on Serial. To disable, add before `startConfigPortal()`
 
 ```cpp
-AsyncESP32_W6100_Manager.setDebugOutput(false);
+AsyncESP32_SC_W6100_manager.setDebugOutput(false);
 ```
 
 You can also change the debugging level from 0 to 4
@@ -2186,9 +2446,27 @@ If you connect to the created configuration Access Point but the ConfigPortal do
 
 ---
 
-### Issues ###
+### Issues
 
-Submit issues to: [AsyncESP32_W6100_Manager issues](https://github.com/khoih-prog/AsyncESP32_W6100_Manager/issues)
+Submit issues to: [AsyncESP32_SC_W6100_Manager issues](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/issues)
+
+
+---
+---
+
+
+### TO DO
+
+ 1. Fix bug. Add enhancement
+ 2. Add support to more `LwIP Ethernet` shields
+
+---
+
+### DONE
+
+ 1. Add support to **ESP32_S2/S3/C3-based boards using LwIP W6100 Ethernet**
+ 2. Add debugging features
+ 3. Add astyle using `allman` style. Restyle the library
 
 ---
 ---
@@ -2224,11 +2502,11 @@ If you want to contribute to this project:
 
 ### License and credits
 
-- The library is licensed under [MIT](https://github.com/khoih-prog/AsyncESP32_W6100_Manager/blob/main/LICENSE)
+- The library is licensed under [MIT](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager/blob/main/LICENSE)
 
 ---
 
-## Copyright
+### Copyright
 
 Copyright 2023- Khoi Hoang
 
