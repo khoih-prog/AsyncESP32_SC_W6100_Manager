@@ -17,7 +17,7 @@
 * [Why do we need this AsyncESP32_SC_W6100_Manager library](#why-do-we-need-this-async-AsyncESP32_SC_W6100_Manager-library)
   * [Features](#features)
   * [Why Async is better](#why-async-is-better)
-  * [Sibling Libraries](#Twin-Libraries)
+  * [Sibling Libraries](#Sibling-Libraries)
   	* [Base libraries](#Base-libraries)
   	* [Synchronous Ethernet Manager libraries](#Synchronous-Ethernet-Manager-libraries)
   	* [Asynchronous Ethernet Manager libraries](#Asynchronous-Ethernet-Manager-libraries)
