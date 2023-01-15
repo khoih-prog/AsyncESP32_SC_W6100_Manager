@@ -17,7 +17,7 @@
 * [Why do we need this AsyncESP32_SC_W6100_Manager library](#why-do-we-need-this-async-AsyncESP32_SC_W6100_Manager-library)
   * [Features](#features)
   * [Why Async is better](#why-async-is-better)
-  * [Twin Libraries](#Twin-Libraries)
+  * [Sibling Libraries](#Twin-Libraries)
   	* [Base libraries](#Base-libraries)
   	* [Synchronous Ethernet Manager libraries](#Synchronous-Ethernet-Manager-libraries)
   	* [Asynchronous Ethernet Manager libraries](#Asynchronous-Ethernet-Manager-libraries)
@@ -154,38 +154,44 @@ To appreciate the power of the [ESPAsyncWebServer](https://github.com/me-no-dev/
 
 ---
 
-### Twin Libraries
+### Sibling Libraries
 
 
-Please also check these similar libraries
+Please also check these sibling libraries
 
 #### Base libraries
 
 1. [WebServer_WT32_ETH01](https://github.com/khoih-prog/WebServer_WT32_ETH01) for ESP32-based `WT32_ETH01` using `LwIP LAN8720`
 2. [WebServer_ESP32_ENC](https://github.com/khoih-prog/WebServer_ESP32_ENC) for ESP32-boards using `LwIP ENC28J60`
-3. [WebServer_ESP32_W6100](https://github.com/khoih-prog/WebServer_ESP32_W6100) for ESP32-boards using `LwIP W6100`
-4. [WebServer_ESP32_SC_ENC](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
-5. [WebServer_ESP32_SC_W6100](https://github.com/khoih-prog/WebServer_ESP32_SC_W6100) for ESP32_S2/S3/C3-boards using `LwIP W6100`
+3. [WebServer_ESP32_W5500](https://github.com/khoih-prog/WebServer_ESP32_W5500) for ESP32-boards using `LwIP W5500`
+4. [WebServer_ESP32_W6100](https://github.com/khoih-prog/WebServer_ESP32_W6100) for ESP32-boards using `LwIP W6100`
+5. [WebServer_ESP32_SC_ENC](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
+6. [WebServer_ESP32_SC_W5500](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) for ESP32_S2/S3/C3-boards using `LwIP W5500`
+7. [WebServer_ESP32_SC_W6100](https://github.com/khoih-prog/WebServer_ESP32_SC_W6100) for ESP32_S2/S3/C3-boards using `LwIP W6100`
 
 
 #### Synchronous Ethernet Manager libraries
 
 1. [ESP32_ENC_Manager](https://github.com/khoih-prog/ESP32_ENC_Manager) for ESP32-boards using `LwIP ENC28J60`
-2. [ESP32_W6100_Manager](https://github.com/khoih-prog/ESP32_W6100_Manager) for ESP32-boards using `LwIP W6100`
-3. [ESP32_Ethernet_Manager](https://github.com/khoih-prog/ESP32_Ethernet_Manager) for ESP32-boards using `LwIP W6100 or ENC28J60`
-4. [ESP32_SC_ENC_Manager](https://github.com/khoih-prog/ESP32_SC_ENC_Manager) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
-5. [ESP32_SC_W6100_Manager](https://github.com/khoih-prog/ESP32_SC_W6100_Manager) for ESP32_S2/S3/C3-boards using `LwIP W6100`
-6. [ESP32_SC_Ethernet_Manager](https://github.com/khoih-prog/ESP32_SC_Ethernet_Manager) for ESP32_S2/S3/C3-boards using `LwIP W6100 or ENC28J60`
+2. [ESP32_W5500_Manager](https://github.com/khoih-prog/ESP32_W5500_Manager) for ESP32-boards using `LwIP W5500`
+3. [ESP32_W6100_Manager](https://github.com/khoih-prog/ESP32_W6100_Manager) for ESP32-boards using `LwIP W6100`
+4. [ESP32_Ethernet_Manager](https://github.com/khoih-prog/ESP32_Ethernet_Manager) for ESP32-boards using `LwIP W5500, W6100 or ENC28J60`
+5. [ESP32_SC_ENC_Manager](https://github.com/khoih-prog/ESP32_SC_ENC_Manager) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
+6. [ESP32_SC_W5500_Manager](https://github.com/khoih-prog/ESP32_SC_W5500_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500`
+7. [ESP32_SC_W6100_Manager](https://github.com/khoih-prog/ESP32_SC_W6100_Manager) for ESP32_S2/S3/C3-boards using `LwIP W6100`
+8. [ESP32_SC_Ethernet_Manager](https://github.com/khoih-prog/ESP32_SC_Ethernet_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500, W6100 or ENC28J60`
 
 #### Asynchronous Ethernet Manager libraries
 
 1. [AsyncWT32_ETH01_Manager](https://github.com/khoih-prog/AsyncWT32_ETH01_Manager) for ESP32-based `WT32_ETH01` using `LwIP LAN8720`
 2. [AsyncESP32_ENC_Manager](https://github.com/khoih-prog/AsyncESP32_ENC_Manager) for ESP32-boards using `LwIP ENC28J60`
-3. [AsyncESP32_W6100_Manager](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) for ESP32-boards using `LwIP W6100`
-4. [AsyncESP32_Ethernet_Manager](https://github.com/khoih-prog/AsyncESP32_Ethernet_Manager) for ESP32-boards using `LwIP W6100 or ENC28J60`
-5. [AsyncESP32_SC_ENC_Manager](https://github.com/khoih-prog/AsyncESP32_SC_ENC_Manager) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
-6. [AsyncESP32_SC_W6100_Manager](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) for ESP32_S2/S3/C3-boards using `LwIP W6100`
-7. [AsyncESP32_SC_Ethernet_Manager](https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager) for ESP32_S2/S3/C3-boards using `LwIP W6100 or ENC28J60`
+3. [AsyncESP32_W5500_Manager](https://github.com/khoih-prog/AsyncESP32_W5500_Manager) for ESP32-boards using `LwIP W5500`
+4. [AsyncESP32_W6100_Manager](https://github.com/khoih-prog/AsyncESP32_W6100_Manager) for ESP32-boards using `LwIP W6100`
+5. [AsyncESP32_Ethernet_Manager](https://github.com/khoih-prog/AsyncESP32_Ethernet_Manager) for ESP32-boards using `LwIP W6100 or ENC28J60`
+6. [AsyncESP32_SC_ENC_Manager](https://github.com/khoih-prog/AsyncESP32_SC_ENC_Manager) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
+7. [AsyncESP32_SC_W5500_Manager](https://github.com/khoih-prog/AsyncESP32_SC_W5500_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500`
+8. [AsyncESP32_SC_W6100_Manager](https://github.com/khoih-prog/AsyncESP32_SC_W6100_Manager) for ESP32_S2/S3/C3-boards using `LwIP W6100`
+9. [AsyncESP32_SC_Ethernet_Manager](https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500, W6100 or ENC28J60`
 
 ---
 
@@ -197,7 +203,7 @@ This [**AsyncESP32_SC_W6100_Manager** library](https://github.com/khoih-prog/Asy
 2. **ESP32-S2 (ESP32-S2 Saola, AI-Thinker ESP-12K, etc.)**
 3. **ESP32-C3 (ARDUINO_ESP32C3_DEV, etc.)**
 
- using `LwIP W6100 Ethernet`
+using `LwIP W6100 Ethernet`
 
 ---
 
@@ -238,7 +244,7 @@ This [**AsyncESP32_SC_W6100_Manager** library](https://github.com/khoih-prog/Asy
 ## Prerequisites
 
  1. [`Arduino IDE 1.8.19+` for Arduino](https://github.com/arduino/Arduino). [![GitHub release](https://img.shields.io/github/release/arduino/Arduino.svg)](https://github.com/arduino/Arduino/releases/latest)
- 2. [`ESP32 Core 2.0.5+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
+ 2. [`ESP32 Core 2.0.6+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
  3. [`ESPAsyncWebServer v1.2.3+`](https://github.com/me-no-dev/ESPAsyncWebServer). You have to use the latest [forked ESPAsyncWebServer](https://github.com/khoih-prog/ESPAsyncWebServer) if the PR [Fix compiler error for ESP32-C3 and mbed TLS v2.7.0+ #970](https://github.com/me-no-dev/ESPAsyncWebServer/pull/970) hasn't been merged. **To install manually for Arduino IDE**
  4. [`ESPAsyncDNSServer v1.0.0+`](https://github.com/devyte/ESPAsyncDNSServer) or [`Forked ESPAsyncDNSServer v1.0.0+`](https://github.com/khoih-prog/ESPAsyncDNSServer/releases/tag/v1.0.0)
  5. [`AsyncTCP v1.1.1+`](https://github.com/me-no-dev/AsyncTCP). **To install manually for Arduino IDE**
